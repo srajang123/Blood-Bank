@@ -8,10 +8,11 @@ router.get('/', (req, res, next) => {
     res.send('hello Admin. home page');
 })
 router.get('/add', (req, res, next) => {
-    res.send('Add data Page Here');
+    res.render('addAdmin', { title: 'Blood Bank:Add Person' });
 });
 router.post('/add', (req, res, next) => {
     const { email, name, age, type, mobile, address } = req.body;
+    console.log(req.body);
     db.execute('insert into data values(?,?,?,?,?,?)', [email, name, age, type, mobile, address])
         .then(ret => {
             res.send('Data Added successfully');
@@ -23,6 +24,7 @@ router.get('/view', (req, res, next) => {
         .then(rows => {
             rows = rows[0];
             console.table(rows);
+            res.render('viewAdmin', { title: 'Blood Bank Data', data: rows });
         })
         .catch(err => {
             console.log(`Error occurred: ${err}`);
@@ -30,7 +32,7 @@ router.get('/view', (req, res, next) => {
 });
 router.get('/remove/:mail', (req, res, next) => {
     const mail = req.params.mail;
-    db.execute('delete from data where mail=?', [mail])
+    db.execute('delete from data where email=?', [mail])
         .then(ret => {
             res.send(`${mail} removed successfully.`);
         })

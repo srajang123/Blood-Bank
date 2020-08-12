@@ -1,19 +1,24 @@
 const express = require('express');
+const expHbs = require('express-handlebars');
 const db = require('../util/database');
 const sendMail = require('../util/mail');
+
+
 const router = express.Router();
 
 router.get('/find', (req, res, next) => {
-    res.send('Welcome to find');
+    res.render('find', { title: 'Blood Bank' });
 });
 router.post('/find', (req, res, next) => {
+    console.log('Post Find');
     db.execute('select * from data where type=?', [req.body.type])
         .then(rows => {
             rows = rows[0];
             console.table(rows);
+            res.render('find-view', { title: 'Blood Bank Query', data: rows });
         })
         .catch(err => {
-            console.log(`Folloing Error has occured: ${err}`);
+            console.log(`Following Error has occured: ${err}`);
         })
 });
 router.get('/contact/:usr', (req, res, next) => {

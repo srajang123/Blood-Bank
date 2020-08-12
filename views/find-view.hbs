@@ -1,0 +1,29 @@
+<div class="find-view">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Blood Group</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                    <td>{{this.index}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.age}}</td>
+                    <td>{{this.type}}</td>
+                    <td>{{this.mobile}}</td>
+
+                    <td>{{this.address}}</td>
+                    <td><a href="/contact/{{this.email}}">Contact</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,54 @@
+<div class="add">
+    <form action='/admin/add' method="POST">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="name" value="" placeholder="Enter name"/></td>
+                </tr>
+                <tr>
+                    <th>E-Mail</th>
+                    <td><input type="text" name="email" value="" placeholder="Enter e-mail"/></td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td><input type="text" name="age" value="" placeholder="Enter age"/></td>
+                </tr>
+                <tr>
+                    <th>Blood Group</th>
+                    <td>
+                        <select name="type" value="-1" aria-placeholder="Select Blood Group">
+                            <option value="-1">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</opB+tion>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mobile Number</th>
+                    <td><input type="text" name="mobile" value="" placeholder="Enter Mobile Number"/></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        <textarea rows="3" cols="50" name="address" value="" placeholder="Enter Address Here"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="ADD" />
+                    </td>
+                    <td>
+                        <input type="reset" value="CLEAR" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
